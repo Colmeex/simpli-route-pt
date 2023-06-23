@@ -78,9 +78,17 @@ export default function Home() {
 	};
 
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between p-24 text-slate-900">
-			<h1>Hola</h1>
-			<div className="grid grid-cols-3 gap-4 mt-8">
+		<main className="flex min-h-screen flex-col items-center  p-24 text-slate-900">
+				<div>
+				<p>Score: {score}</p>
+				<p>Time: {time}</p>
+				{gameOver && (
+					<button className="mt-4" onClick={handlePlayAgain}>
+						Play Again
+					</button>
+				)}
+			</div>
+			<div className="grid grid-cols-3 gap-4 mt-8 ">
 				{time === 60
 					? birds.map((bird) => (
 							<div
@@ -119,15 +127,7 @@ export default function Home() {
 							</div>
 					))}
 			</div>
-			<div>
-				<p>Score: {score}</p>
-				<p>Time: {time}</p>
-				{gameOver && (
-					<button className="mt-4" onClick={handlePlayAgain}>
-						Play Again
-					</button>
-				)}
-			</div>
+
 		</main>
 	)
 }
